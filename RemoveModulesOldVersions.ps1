@@ -1,4 +1,22 @@
-﻿# Elevate to Admin mone
+<#
+.Synopsis
+   Checks powershell installed modules and removes old versions of them.
+
+   ## DISCLAIMER:
+   ## Copyright (c) Itamar Lourenço. All rights reserved. This
+   ## script is made available to you without any express, implied or
+   ## statutory warranty, not even the implied warranty of
+   ## merchantability or fitness for a particular purpose, or the
+   ## warranty of title or non-infringement. The entire risk of the
+   ## use or the results from the use of this script remains with you.
+
+.NOTES
+   Author: Itamar Lourenço
+   Created: 2019/09/13
+   Version: 1.0   
+#>
+
+# Elevate to Admin mone
 $currentUser = New-Object Security.Principal.WindowsPrincipal $([Security.Principal.WindowsIdentity]::GetCurrent())
 $testadmin = $currentUser.IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)
 if ($testadmin -eq $false) {
