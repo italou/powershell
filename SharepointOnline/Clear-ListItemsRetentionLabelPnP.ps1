@@ -24,7 +24,6 @@
     This script will iterate through all of the items in the specified library
     and will clear the retention label applied to the items (compliance tag).
 
-
 .PARAMETER webURL
     Specifies the site collection url where the items are.
 
@@ -35,7 +34,7 @@
 .NOTES
     Requires: PnP PowerShell
     Version : 1.0
-    Updated : 2021-02-11
+    Updated : 2021-02-24
 
 
 .LINK
@@ -51,13 +50,13 @@ if(!(Get-Module -ListAvailable -Name PnP.PowerShell)) { Write-Host "PnP.PowerShe
 # site collection url.
 while((-not $webURL) -or ($webURL -eq ""))
 {
-    $webURL = Read-Host 'Input your site collection URL'
+    $webURL = Read-Host 'Enter site collection URL'
 }
 
 # list name.
 while((-not $listName) -or ($listName -eq ""))
 {
-    $listName = Read-Host 'Input your List Name'
+    $listName = Read-Host 'Enter list/library name'
 }
 
 # number of items cleared.
