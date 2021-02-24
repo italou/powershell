@@ -15,6 +15,9 @@ Powershell:
 |   LICENSE
 |   README.md
 |
++---SharepointOnline
+|       Clear-ListItemsRetentionLabel.ps1 <- Clears the retention label from all library items.
+|
 \---Utils
         Remove-ModulesOldVersions.ps1 <- Script to uninstall old modules versions.
 ```
