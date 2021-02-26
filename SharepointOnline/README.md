@@ -6,7 +6,7 @@ not even the implied warranty of merchantability or fitness for a particular pur
 warranty of title or non-infringement. The entire risk of the use or the results from the use
 of this script remains with you. **Please make sure to review all scripts code and comments!**
 
-### [Clear-ListItemsRetentionLabel.ps1](SharepointOnline/Clear-ListItemsRetentionLabel.ps1)
+### [Clear-ListItemsRetentionLabel.ps1](Clear-ListItemsRetentionLabel.ps1)
 
 This script will iterate through all of the items in the specified library and will clear the
 retention label applied to the items (compliance tag). It retrieves list items with pagination,
@@ -19,7 +19,7 @@ url (ie: personal/user_contoso_com) and the library name will the default Docume
 
 <br />
 
-### [Clear-ListItemsRetentionLabelPnP.ps1](SharepointOnline/Clear-ListItemsRetentionLabelPnP.ps1)
+### [Clear-ListItemsRetentionLabelPnP.ps1](Clear-ListItemsRetentionLabelPnP.ps1)
 
 Does the same as above but it's based on PnP. This one supports MFA but it's a bit slower due
 to read every item in the list, one by one. Also uses pagination, set to 2500 items.
