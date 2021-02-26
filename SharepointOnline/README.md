@@ -17,6 +17,26 @@ url (ie: personal/user_contoso_com) and the library name will the default Docume
 
 ***Requires: Sharepoint Online Client Components***
 
+#### Output
+```
+.\Clear-ListItemsRetentionLabel.ps1
+Enter username: user@contoso.onmicrosoft.com
+Enter site collection URL: https://contoso-my.sharepoint.com/personal/user_contoso_onmicrosoft_com
+Enter list/library name: Documents
+
+Getting list... Done!
+
+Getting list items... Done!
+'Folder1' queued to clear label 'Block Deletion Forever'.
+'Document1.docx' queued to clear label 'Block Deletion Forever'.
+'Document2.docx' queued to clear label 'Block Deletion Forever'.
+'Document.docx' queued to clear label 'Block Deletion Forever'.
+'Document.docx' queued to clear label 'Block Deletion Forever'.
+
+Updating queued items... Done
+
+A total of 5 items were cleared in 'Documents'.
+```
 <br />
 
 ### [Clear-ListItemsRetentionLabelPnP.ps1](Clear-ListItemsRetentionLabelPnP.ps1)
@@ -26,3 +46,17 @@ to scan every item in the list, one by one. It also uses pagination, set to 2500
 
 ***Requires: PnP.PowerShell module***
 
+#### Output
+```
+.\Clear-ListItemsRetentionLabelPnP.ps1
+Enter site collection URL: https://contoso-my.sharepoint.com/personal/user_contoso_onmicrosoft_com
+Enter list/library name: Documents
+
+Getting list items... Done!
+Clearing label 'Block Deletion Forever' on item 'Folder1'... Cleared!
+Clearing label 'Block Deletion Forever' on item 'Document2.docx'... Cleared!
+Clearing label 'Block Deletion Forever' on item 'Document.docx'... Cleared!
+Clearing label 'Block Deletion Forever' on item 'Document.docx'... Cleared!
+
+A total of 4 items were cleared in Documents.
+```
