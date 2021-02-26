@@ -25,6 +25,6 @@ Powershell:
 |
 \---Yammer
         Resolve-NMCannotOpenFile.ps1 <- Resolves can't open file in native mode migration.
-        Resolve-NMExistingFiles.ps1 <- Resolves files already existing in Sharepoint on native mode migration.
-        Resolve-NMFilenameConflits.ps1 <- Resolves invalid characters conflits in files name, for native mode.
+        Resolve-NMExistingFiles.ps1 <- Resolves file already exists in Sharepoint on native mode migration.
+        Resolve-NMFilenameConflits.ps1 <- Resolves invalid characters conflit in filename, for native mode.
 ```
