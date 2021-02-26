@@ -21,8 +21,8 @@ url (ie: personal/user_contoso_com) and the library name will the default Docume
 
 ### [Clear-ListItemsRetentionLabelPnP.ps1](Clear-ListItemsRetentionLabelPnP.ps1)
 
-Does the same as above but it's based on PnP. This one supports MFA but it's a bit slower due
-to read every item in the list, one by one. Also uses pagination, set to 2500 items.
+Does the same as the one above but it uses PnP. Supports MFA but it's a bit slower due
+to scan every item in the list, one by one. It also uses pagination, set to 2500 items.
 
 ***Requires: PnP.PowerShell module***
 
