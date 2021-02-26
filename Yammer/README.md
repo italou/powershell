@@ -117,5 +117,5 @@ Checking file ID: 889068978176 - Name: Sp3c!alÇÇÂõ+�ller.docx - Storage: A
 Checking file ID: 889068830720 - Name: Sp3c!alÇÇÂõ+0ller.docx - Storage: SHAREPOINT >> Skipped, file not stored in Yammer.
 
 All files from Files.csv processed!
-Results saved in log file: D:\OneDrive\!UPLOADS\!WORK\CatFood\Yammer\!test\Resolve-NMFilenameConflits_Results_20210226T2237440310.csv
+Results saved in log file: Resolve-NMFilenameConflits_Results_20210226T2237440310.csv
 ```
