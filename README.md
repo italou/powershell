@@ -24,5 +24,6 @@ Powershell:
 |       Remove-ModulesOldVersions.ps1 <- Script to uninstall old modules versions.
 |
 \---Yammer
-        Resolve-FilenameConflits.ps1 <- Resolves invalid characters conflits in files name.
+        Resolve-NMExistingFiles.ps1 <- Resolves files already existing in Sharepoint on native mode migration.
+        Resolve-NMFilenameConflits.ps1 <- Resolves invalid characters conflits in files name, for native mode.
 ```
