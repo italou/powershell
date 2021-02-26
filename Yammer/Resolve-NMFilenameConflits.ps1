@@ -49,10 +49,8 @@
 .PARAMETER authToken
     Specifies the Authorization Token needed to perform the request.
 
-
 .PARAMETER filesCsv
     Specifies the Files.csv filename.
-
 
 .NOTES
     Version : 1.0
@@ -65,6 +63,7 @@
 
 
 # Warnings output
+Write-Host
 Write-Host "ATTENTION: You should use an Authorization Token from a GA user or Yammer App / Developer Token." -ForegroundColor Yellow
 Write-Host "           Also be aware that this script was created to be used along with the Files.csv file" -ForegroundColor Yellow
 Write-Host "           provided by Yammer Data Export functionality." -ForegroundColor Yellow
