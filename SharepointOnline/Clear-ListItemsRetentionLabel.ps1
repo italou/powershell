@@ -196,6 +196,11 @@ try
 
     } while ($null -ne $position) 
 
+    # updating any remaining items
+    Write-Host
+    Write-Host "Updating queued items... " -NoNewline
+    $ctx.ExecuteQuery()
+    Write-Host "Done" -ForegroundColor Green
 
     Write-Host
     Write-Host "A total of $numItemsCleared items were cleared in '$listName'." -ForegroundColor Green

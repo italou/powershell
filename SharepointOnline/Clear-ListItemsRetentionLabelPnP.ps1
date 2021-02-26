@@ -67,6 +67,7 @@ try
     # Using WebLogin for MFA
     Connect-PnPOnline -Url $webURL -UseWebLogin
 
+    Write-Host
     Write-Host "Getting list items... " -NoNewline
     $itemsList = Get-PnPListItem -List $listName -PageSize 2500
     Write-Host "Done!" -ForegroundColor Green
@@ -87,6 +88,7 @@ try
         }
     }
 
+    Write-Host
     Write-Host "A total of $numItemsCleared items were cleared in $listName." -ForegroundColor Green
 
 }
