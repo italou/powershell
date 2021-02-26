@@ -143,24 +143,27 @@ foreach($file in $sortedFileList){
             # If so, then appends file id to filename to avoid duplicated filenames.
             if(($newFilename -eq $lastFilename) -and ($file.group_id -eq $lastFileGroup))
             {
-                $response = Invoke-WebRequest -Method Put `                                  -Uri "https://www.yammer.com/api/v1/uploaded_files/$($file.file_id)" `                                  -Headers @{Authorization = "Bearer $authToken"} `
-                                  -ContentType "application/x-www-form-urlencoded; charset=UTF-8" `
-                                  -Body "name=$($newFilename + "_" + $file.file_id)"
+                # update last iterated file name.
+                $lastFilename = $newFilename
+
+                # append file id to filename
+                $newFilename = $file.file_id + "_" + $newFilename
             }
             else
             {
-                $response = Invoke-WebRequest -Method Put `                                  -Uri "https://www.yammer.com/api/v1/uploaded_files/$($file.file_id)" `                                  -Headers @{Authorization = "Bearer $authToken"} `
-                                  -ContentType "application/x-www-form-urlencoded; charset=UTF-8" `
-                                  -Body "name=$newFilename"
+                # update last iterated file name.
+                $lastFilename = $newFilename
             }
+
+            $response = Invoke-WebRequest -Method Put `                                          -Uri "https://www.yammer.com/api/v1/uploaded_files/$($file.file_id)" `                                          -Headers @{Authorization = "Bearer $authToken"} `
+                                          -ContentType "application/x-www-form-urlencoded; charset=UTF-8" `
+                                          -Body "name=$newFilename"
+
 
             # logging and output
             # -Value '"file_id", "status", "result", "name","group_id", "storage_type"'
             Add-Content $logFile -Value """$($file.file_id)"",""Renamed"",""$($newFilename)"",""$($file.name)"",""$($file.group_id)"",""$($file.storage_type)"""
             Write-Host " >> Name conflit found! File renamed to $newFilename" -ForegroundColor Yellow
-
-            # update last iterated file name.
-            $lastFilename = $newFilename
         }
         else # filename is valid.
         {
