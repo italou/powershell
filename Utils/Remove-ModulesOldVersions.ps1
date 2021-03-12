@@ -41,26 +41,25 @@ $installedModules = Get-InstalledModule
 # Iterate through installed modules
 foreach ($module in $installedModules)
 {
-    Write-Host Checking module $module.name...
+    Write-Host Checking module $module.name... " " -NoNewline
 
     $moduleVersions = Get-InstalledModule $module.name -allversions
 
+    Write-Host Latest installed version is $moduleVersions[-1].version .
+
     if ($moduleVersions.count -gt 1 )
     {
-        Write-Host Found $moduleVersions.count versions." " -NoNewline -ForegroundColor Yellow
-    }
+        Write-Host Found $moduleVersions.count versions. -ForegroundColor Yellow
 
-    Write-Host Latest installed version is $moduleVersions[0].version .
-  
-    # Iterate through versions and unsinstall previous ones.
-    foreach ($moduleVersion in $moduleVersions)
-    {
-        if ($moduleVersion.version -ne $moduleVersions[0].version)
+        # Iterate through versions and unsinstall previous ones.
+        foreach ($moduleVersion in $moduleVersions)
         {
-            Write-Host Uninstalling version $moduleVersion.version ... -ForegroundColor Yellow
-            $moduleVersion | Uninstall-Module -force
+            if ($moduleVersion.version -ne $moduleVersions[-1].version)
+            {
+                Write-Host "   "Uninstalling version $moduleVersion.version ... -ForegroundColor Yellow
+                $moduleVersion | Uninstall-Module -force
+            }
         }
-	
     }
 
     Write-Host "------------------------"
