@@ -26,41 +26,45 @@
 
 # Elevate to Admin mode
 $currentUser = New-Object Security.Principal.WindowsPrincipal $([Security.Principal.WindowsIdentity]::GetCurrent())
-$testadmin = $currentUser.IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)
-if ($testadmin -eq $false) {
+$runAsAdmin = $currentUser.IsInRole([Security.Principal.WindowsBuiltinRole]::Administrator)
+
+if (-not $runAsAdmin)
+{
     Start-Process powershell.exe -Verb RunAs -ArgumentList ('-noprofile -noexit -file "{0}" -elevated' -f ($myinvocation.MyCommand.Definition))
     Write-Output "Couldn't run in Admin mode! Try manually!"
     exit $LASTEXITCODE
 }
 
 # Get installed modules
-$mods = Get-InstalledModule
+$installedModules = Get-InstalledModule
 
 # Iterate through installed modules
-foreach ($mod in $mods)
+foreach ($module in $installedModules)
 {
-  Write-Host "Checking module: $($mod.name)"
-  $latest = Get-InstalledModule $mod.name
-  $specificmods = Get-InstalledModule $mod.name -allversions
+    Write-Host Checking module $module.name...
 
-  if ($specificmods.count -gt 1 )
-  {
-    Write-Host "Found $($specificmods.count) versions, " -NoNewline
-  }
+    $latestModuleVersion = Get-InstalledModule $module.name
+    $allModuleVersions = Get-InstalledModule $module.name -allversions
 
-  Write-Host "latest installed version is: $($latest.version)"
+    if ($allModuleVersions.count -gt 1 )
+    {
+        Write-Host Found $allModuleVersions.count versions." " -NoNewline -ForegroundColor Yellow
+    }
+
+    Write-Host Latest installed version is $latestModuleVersion.version
   
-  # Iterate through versions and unsinstall previous ones.
-  foreach ($sm in $specificmods)
-  {
-    if ($sm.version -ne $latest.version)
-	{
-	  Write-Host "Uninstalling version: $($sm.version)"
-	  $sm | Uninstall-Module -force
-	}
+    # Iterate through versions and unsinstall previous ones.
+    foreach ($moduleVersion in $allModuleVersions)
+    {
+        if ($moduleVersion.version -ne $latestModuleVersion.version)
+        {
+            Write-Host Uninstalling version $moduleVersion.version -ForegroundColor Yellow
+            $moduleVersion | Uninstall-Module -force
+        }
 	
-  }
-  Write-Host "------------------------"
+    }
+
+    Write-Host "------------------------"
 }
 
-Write-Host "All done!"
+Write-Host "All modules checked!" -ForegroundColor Green
