@@ -19,8 +19,8 @@
 
 .NOTES
     Author: Itamar Lourenço
-   Created: 2019/09/13
-   Version: 1.0
+   Version: 1.1
+   Updated: 2021/03/12
 
 #>
 
@@ -43,22 +43,21 @@ foreach ($module in $installedModules)
 {
     Write-Host Checking module $module.name...
 
-    $latestModuleVersion = Get-InstalledModule $module.name
-    $allModuleVersions = Get-InstalledModule $module.name -allversions
+    $moduleVersions = Get-InstalledModule $module.name -allversions
 
-    if ($allModuleVersions.count -gt 1 )
+    if ($moduleVersions.count -gt 1 )
     {
-        Write-Host Found $allModuleVersions.count versions." " -NoNewline -ForegroundColor Yellow
+        Write-Host Found $moduleVersions.count versions." " -NoNewline -ForegroundColor Yellow
     }
 
-    Write-Host Latest installed version is $latestModuleVersion.version
+    Write-Host Latest installed version is $moduleVersions[0].version .
   
     # Iterate through versions and unsinstall previous ones.
-    foreach ($moduleVersion in $allModuleVersions)
+    foreach ($moduleVersion in $moduleVersions)
     {
-        if ($moduleVersion.version -ne $latestModuleVersion.version)
+        if ($moduleVersion.version -ne $moduleVersions[0].version)
         {
-            Write-Host Uninstalling version $moduleVersion.version -ForegroundColor Yellow
+            Write-Host Uninstalling version $moduleVersion.version ... -ForegroundColor Yellow
             $moduleVersion | Uninstall-Module -force
         }
 	
