@@ -54,9 +54,9 @@ In the end, a CSV log file will be provided with the results.
 
 ***Requires:***
 
-- **uthorization Token**: can be obtained by [registering a Yammer App](https://developer.yammer.com/docs/app-registration)
+- **Authorization Token**: can be obtained by [registering a Yammer App](https://developer.yammer.com/docs/app-registration)
 and on the App page "Generate a developer token for this application".
-- **Native mode migration error report log**.
+- **Native mode migration error report log**: ie: migration_error_report.csv.
 
 #### Output
 ```
@@ -84,7 +84,7 @@ Execution results were saved to log file: Resolve-NMExistingFiles_Results_202102
 
 ### [Resolve-NMFilenameConflits.ps1](Resolve-NMFilenameConflits.ps1)
 
-This script will read from the Export Network Data Files.csv file and check if the files name can
+This script will read from the "Export Network Data" Files.csv file and check if the files name can
 conflict when migrating to native mode due to invalid characters in the name. If a conflit is
 found, the invalid character will be replaced with underscore '_'. If the new filename ends up being
 a duplicated, then the file id will be also appended to filename.  
