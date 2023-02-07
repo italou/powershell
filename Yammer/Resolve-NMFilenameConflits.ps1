@@ -30,9 +30,9 @@
     as well as the Files.csv file from Yammer Network Data Export.
 
     The Authorization Token can be obtained by registering a Yammer App
-    (see https://developer.yammer.com/docs/app-registration) and on the App page
-    "Generate a developer token for this application". Provide this token at the
-    variable "$authToken" below.
+    (see https://learn.microsoft.com/en-us/rest/api/yammer/app-registration)
+    and on the App page "Generate a developer token for this application". 
+    Provide this token at the variable "$authToken" below.
 
     The Files.csv file can be obtained from going to the Network Admin Settings,
     then Export Network Data. Make sure to disable "Include attachments", it's
@@ -53,11 +53,11 @@
     Specifies the Files.csv filename.
 
 .NOTES
-    Version : 1.0
-    Updated : 2021-01-27
+    Version : 1.01
+    Updated : 2023-02-07
 
 .LINK  
-    https://docs.microsoft.com/en-us/yammer/troubleshoot-problems/troubleshoot-native-mode#how-does-yammer-in-native-mode-handle-file-name-conflicts
+    https://learn.microsoft.com/en-us/yammer/troubleshoot-problems/troubleshoot-native-mode#how-does-yammer-in-native-mode-handle-file-name-conflicts
 
 #>
 
@@ -155,7 +155,9 @@ foreach($file in $sortedFileList){
                 $lastFilename = $newFilename
             }
 
-            $response = Invoke-WebRequest -Method Put `                                          -Uri "https://www.yammer.com/api/v1/uploaded_files/$($file.file_id)" `                                          -Headers @{Authorization = "Bearer $authToken"} `
+            $response = Invoke-WebRequest -Method Put `
+                                          -Uri "https://www.yammer.com/api/v1/uploaded_files/$($file.file_id)" `
+                                          -Headers @{Authorization = "Bearer $authToken"} `
                                           -ContentType "application/x-www-form-urlencoded; charset=UTF-8" `
                                           -Body "name=$newFilename"
 
