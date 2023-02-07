@@ -14,7 +14,7 @@ In the end, a CSV log file will be provided with the results.
 
 ***Requires:***
 
-- **Authorization Token**: can be obtained by [registering a Yammer App](https://developer.yammer.com/docs/app-registration)
+- **Authorization Token**: can be obtained by [registering a Yammer App](https://learn.microsoft.com/en-us/rest/api/yammer/app-registration)
 and on the App page "Generate a developer token for this application".
 - **Native mode migration error report log**.
 
@@ -54,7 +54,7 @@ In the end, a CSV log file will be provided with the results.
 
 ***Requires:***
 
-- **Authorization Token**: can be obtained by [registering a Yammer App](https://developer.yammer.com/docs/app-registration)
+- **Authorization Token**: can be obtained by [registering a Yammer App](https://learn.microsoft.com/en-us/rest/api/yammer/app-registration)
 and on the App page "Generate a developer token for this application".
 - **Native mode migration error report log**: ie: migration_error_report.csv.
 
@@ -92,7 +92,7 @@ In the end, a CSV log file will be provided with the results.
 
 ***Requires:***
 
-- **Authorization Token**: can be obtained by [registering a Yammer App](https://developer.yammer.com/docs/app-registration)
+- **Authorization Token**: can be obtained by [registering a Yammer App](https://learn.microsoft.com/en-us/rest/api/yammer/app-registration)
 and on the App page "Generate a developer token for this application".
 - **Files.csv**: Can be obtained from going to the Network Admin Settings, then Export Network Data.
 Make sure to disable "Include attachments" as it's only needed the information about the files.
