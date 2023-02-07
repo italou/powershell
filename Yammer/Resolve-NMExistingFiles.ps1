@@ -32,8 +32,8 @@
     migration report log CSV file.
 
     The Authorization Token can be obtained by registering a Yammer App
-    (see https://developer.yammer.com/docs/app-registration) and on the App
-    page "Generate a developer token for this application".
+    (see https://learn.microsoft.com/en-us/rest/api/yammer/app-registration)
+    and on the App page "Generate a developer token for this application".
 
     The native mode migration report log file can be obtained from the native 
     mode migration page directly.
@@ -53,11 +53,11 @@
     Specifies the native mode migration report log CSV filename.
 
 .NOTES
-    Version   : 1.0
-    Updated   : 2021-01-29
+    Version   : 1.01
+    Updated   : 2023-02-07
 
 .LINK  
-    https://docs.microsoft.com/en-us/yammer/troubleshoot-problems/troubleshoot-native-mode
+    https://learn.microsoft.com/en-us/yammer/troubleshoot-problems/troubleshoot-native-mode
 
 #>
 
@@ -87,7 +87,9 @@ function Get-YammerFilename {
         [parameter(Mandatory=$true)][string]$FileId
     )
     
-    $fileRequest = Invoke-WebRequest -Method Get `                                     -Uri "https://www.yammer.com/api/v1/uploaded_files/$FileId.json" `                                     -Headers @{Authorization = "Bearer $authToken"}
+    $fileRequest = Invoke-WebRequest -Method Get `
+                                     -Uri "https://www.yammer.com/api/v1/uploaded_files/$FileId.json" `
+                                     -Headers @{Authorization = "Bearer $authToken"}
 
     $fileObject = ConvertFrom-JSON  $fileRequest.Content
 
@@ -105,7 +107,9 @@ function Rename-YammerFilename {
         [parameter(Mandatory=$true)][string]$NewFilename
     )
    
-    $response = Invoke-WebRequest -Method Put `                                  -Uri "https://www.yammer.com/api/v1/uploaded_files/$FileId" `                                  -Headers @{Authorization = "Bearer $authToken"} `
+    $response = Invoke-WebRequest -Method Put `
+                                  -Uri "https://www.yammer.com/api/v1/uploaded_files/$FileId" `
+                                  -Headers @{Authorization = "Bearer $authToken"} `
                                   -ContentType "application/x-www-form-urlencoded; charset=UTF-8" `
                                   -Body "name=$NewFilename"
 
