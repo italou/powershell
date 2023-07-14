@@ -23,8 +23,9 @@ Powershell:
 +---Utils
 |       Remove-ModulesOldVersions.ps1 <- Script to uninstall old modules versions.
 |
-\---Yammer
+\---Yammer (Viva Engage)
         Resolve-NMCannotOpenFile.ps1 <- Resolves can't open file in native mode migration.
         Resolve-NMExistingFiles.ps1 <- Resolves file already exists in Sharepoint on native mode migration.
         Resolve-NMFilenameConflits.ps1 <- Resolves invalid characters conflit in filename, for native mode.
+        Resolve-NMOrphanFiles.ps1 <- Resolves orphan files for native mode migration.
 ```
