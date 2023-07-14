@@ -119,3 +119,49 @@ Checking file ID: 889068830720 - Name: Sp3c!alÇÇÂõ+0ller.docx - Storage: SHA
 All files from Files.csv processed!
 Results saved in log file: Resolve-NMFilenameConflits_Results_20210226T2237440310.csv
 ```
+<br />
+
+### [Resolve-NMOrphanFiles.ps1](Resolve-NMOrphanFiles.ps1)
+
+This script will read the native mode error report log and will check for files identified as 
+orphan files. Any found file will then be downloaded to the current location and deleted for 
+Viva Engage (Yammer).
+In the end, a CSV log file will be provided with the results.
+
+***Requires:***
+
+- **Authorization Token**: can be obtained by [registering a Yammer App](https://learn.microsoft.com/en-us/rest/api/yammer/app-registration)
+and on the App page "Generate a developer token for this application".
+- **Native mode migration error report log**: ie: migration_error_report.csv.
+
+#### Output
+```
+.\Resolve-NMOrphanFiles.ps1
+
+ATTENTION: You should use an Authorization Token from a GA user or Viva Engage (Yammer) App / Developer Token.
+           Also be aware that this script was created to be used along with the Files.csv file
+           provided by Yammer Data Export functionality.
+
+Press CTRL + C to cancel. Press Enter to continue...: 
+
+Provide the Authorization Token: XXXXXXX-xxxxxxxxxxxxxxxxxxxx
+Provide the name of the native mode migration error report file (ie: migration_error_report.csv): migration_error_report.csv
+
+Loading report information from migration_error_report.csv ... Loaded.
+
+Downloading file Dummy PDF 2.PDF... Done.
+     Deleting file Dummy PDF 2.PDF... Done.
+Downloading file pre-travel_checklist.one... File already exists, timestamp added: pre-travel_checklist_20230714T1231038626.one
+     Deleting file pre-travel_checklist.one... Done.
+ERROR: Skipping file with id 1753581019163. The remote server returned an error: (404) Not Found.
+Downloading file Dummy Photo 2.JPG... File already exists, timestamp added: Dummy Photo 2_20230714T1231052972.JPG
+     Deleting file Dummy Photo 2.JPGe... Done.
+Downloading file Dummy Photo 4.jpg... Done.
+     Deleting file Dummy Photo 4.jpg... Done.
+Downloading file tf02930020.xltx... Done.
+     Deleting file tf02930020.xltx... Done.
+
+All entries from the Report Log file processed!
+Execution results were saved to log file: Resolve-NMOrphanFiles_Results_20230714T1231010633.csv
+```
+
