@@ -1,4 +1,4 @@
-# Yammer
+# Viva Engage (Yammer)
 
 DISCLAIMER:  
 The scripts here are made available to you without any express, implied or statutory warranty,
@@ -14,7 +14,7 @@ In the end, a CSV log file will be provided with the results.
 
 ***Requires:***
 
-- **Authorization Token**: can be obtained by [registering a Yammer App](https://learn.microsoft.com/en-us/rest/api/yammer/app-registration)
+- **Authorization Token**: can be obtained by [registering a Viva Engage (Yammer) App](https://learn.microsoft.com/en-us/rest/api/yammer/app-registration)
 and on the App page "Generate a developer token for this application".
 - **Native mode migration error report log**.
 
@@ -22,9 +22,9 @@ and on the App page "Generate a developer token for this application".
 ```
 .\Resolve-NMCannotOpenFile.ps1
 
-ATTENTION: You should use an Authorization Token from a GA user or Yammer App / Developer Token.
+ATTENTION: You should use an Authorization Token from a GA user or Viva Engage (Yammer) App / Developer Token.
            Also be aware that this script was created to be used along with the native mode migration
-           report log CSV file provided by Yammer.
+           report log CSV file provided by Viva Engage (Yammer).
 
 Press CTRL + C to cancel. Press Enter to continue...: 
 
@@ -48,13 +48,13 @@ Execution results were saved to log file: Resolve-NMCannotOpenFile_Results_20210
 
 Using the native mode migration error report log file, this script will check for files identified
 as already existing in Sharepoint and append the file id on those so every file is migrated to
-Sharepoint. In Yammer it's possible to have different files with same name, only the file ids will
+Sharepoint. In Viva Engage (Yammer) it's possible to have different files with same name, only the file ids will
 be different, so this way we can try to migrate all files.  
 In the end, a CSV log file will be provided with the results.
 
 ***Requires:***
 
-- **Authorization Token**: can be obtained by [registering a Yammer App](https://learn.microsoft.com/en-us/rest/api/yammer/app-registration)
+- **Authorization Token**: can be obtained by [registering a Viva Engage (Yammer) App](https://learn.microsoft.com/en-us/rest/api/yammer/app-registration)
 and on the App page "Generate a developer token for this application".
 - **Native mode migration error report log**: ie: migration_error_report.csv.
 
@@ -62,9 +62,9 @@ and on the App page "Generate a developer token for this application".
 ```
 .\Resolve-NMExistingFiles.ps1
 
-ATTENTION: You should use an Authorization Token from a GA user or Yammer App / Developer Token.
+ATTENTION: You should use an Authorization Token from a GA user or Viva Engage (Yammer) App / Developer Token.
            Also be aware that this script was created to be used along with the native mode migration
-           report log CSV file provided by Yammer.
+           report log CSV file provided by Viva Engage (Yammer).
 
 Press CTRL + C to cancel. Press Enter to continue...: 
 
@@ -92,7 +92,7 @@ In the end, a CSV log file will be provided with the results.
 
 ***Requires:***
 
-- **Authorization Token**: can be obtained by [registering a Yammer App](https://learn.microsoft.com/en-us/rest/api/yammer/app-registration)
+- **Authorization Token**: can be obtained by [registering a Viva Engage (Yammer) App](https://learn.microsoft.com/en-us/rest/api/yammer/app-registration)
 and on the App page "Generate a developer token for this application".
 - **Files.csv**: Can be obtained from going to the Network Admin Settings, then Export Network Data.
 Make sure to disable "Include attachments" as it's only needed the information about the files.
@@ -101,9 +101,9 @@ Make sure to disable "Include attachments" as it's only needed the information a
 ```
 .\Resolve-NMFilenameConflits.ps1
 
-ATTENTION: You should use an Authorization Token from a GA user or Yammer App / Developer Token.
+ATTENTION: You should use an Authorization Token from a GA user or Viva Engage (Yammer) App / Developer Token.
            Also be aware that this script was created to be used along with the Files.csv file
-           provided by Yammer Data Export functionality.
+           provided by Viva Engage (Yammer) Data Export functionality.
 
 Press CTRL + C to cancel. Press Enter to continue...: 
 
@@ -130,7 +130,7 @@ In the end, a CSV log file will be provided with the results.
 
 ***Requires:***
 
-- **Authorization Token**: can be obtained by [registering a Yammer App](https://learn.microsoft.com/en-us/rest/api/yammer/app-registration)
+- **Authorization Token**: can be obtained by [registering a Viva Engage (Yammer) App](https://learn.microsoft.com/en-us/rest/api/yammer/app-registration)
 and on the App page "Generate a developer token for this application".
 - **Native mode migration error report log**: ie: migration_error_report.csv.
 
