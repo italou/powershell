@@ -33,8 +33,8 @@
 
 .NOTES
     Requires: PnP PowerShell
-    Version : 1.0
-    Updated : 2021-02-24
+    Version : 1.01
+    Updated : 2023-08-22
 
 
 .LINK
@@ -64,8 +64,7 @@ $numItemsCleared = 0
 
 try
 {
-    # Using WebLogin for MFA
-    Connect-PnPOnline -Url $webURL -UseWebLogin
+    Connect-PnPOnline -Url $webURL -Interactive
 
     Write-Host
     Write-Host "Getting list items... " -NoNewline
