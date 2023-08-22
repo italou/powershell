@@ -19,6 +19,7 @@ Powershell:
 +---SharepointOnline
 |       Clear-ListItemsRetentionLabel.ps1 <- Clears the retention label from all library items.
 |       Clear-ListItemsRetentionLabelPnP.ps1 <- Clears the retention label from all library items (PnP based).
+|       Enforce-MajorVersionLimit.ps1 <- Enforces major versions limit on all library files (PnP based).
 |
 +---Utils
 |       Remove-ModulesOldVersions.ps1 <- Script to uninstall old modules versions.
