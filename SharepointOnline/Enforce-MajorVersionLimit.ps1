@@ -18,22 +18,22 @@
 
 
 .SYNOPSIS  
-    Enforces major versions limit on all library files.
+    Enforces major version limit on all library files.
 
 
 .DESCRIPTION
     This script iterates through all the libray items and for files it checks 
-    it the file has more versions than the set major versions limit.
-    If so, it removes the oldest versions until it has the same number of
-    versions as the set limit.
+    if the file has more versions than the set major versions limit.
+    If so, it removes the oldest versions until the file only has the same 
+    number of versions as the set limit.
 
 
-.PARAMETER webURL
-    Specifies the site collection url where the items are.
+.PARAMETER siteUrl
+    Site collection url.
 
 
-.PARAMETER listName
-    Specifies the list (library) name where the items are.
+.PARAMETER libName
+    Library name.
 
 
 .NOTES
